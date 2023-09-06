@@ -1,0 +1,19 @@
+{
+  "name": "chatgpt-desktop",
+  "version": "1.0.0",
+  "description": "unofficial electron wrapper for ChatGPT site",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "chatgpt-desktop"
+  },
+  "author": "Zabir Raihan",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^26.1.0"
+  }
+}
