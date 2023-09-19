@@ -1,4 +1,4 @@
-const { app, BrowserWindow, globalShortcut } = require("electron");
+const { app, BrowserWindow } = require("electron");
 
 const createWindow = () => {
   const mainWindow = new BrowserWindow({
@@ -9,7 +9,7 @@ const createWindow = () => {
     minWidth: 430,
     minHeight: 700,
     icon: __dirname + "/build/icon.icns",
-    // vibrancy: "sidebar",
+    vibrancy: "sidebar"
   });
 
   mainWindow.loadURL("http://chat.openai.com");
@@ -31,7 +31,6 @@ app.whenReady().then(() => {
 });
 
 app.on("window-all-closed", () => {
-  globalShortcut.unregisterAll();
   if (process.platform !== "darwin") app.quit();
 });
 
@@ -41,10 +40,11 @@ const css = `
     margin-left: 75px !important;
   }
 
-  /* headerbar draggable*/
-  .relative.z-20.flex.min-h-\\[60px\\].flex-wrap.items-center.justify-between.gap-3.border-b.border-black\\/10.bg-white.p-2.text-gray-500.dark\\:border-gray-900\\/50.dark\\:bg-gray-800.dark\\:text-gray-300 {
+  /* sticky and draggable headerbar */
+  header {
+    transform: translateY(0%) !important;
     -webkit-app-region: drag !important;
-    height: 0px !important;
+    background-color: #3b3d4a !important;
   }
 
   /* share icon non draggable */
@@ -52,7 +52,7 @@ const css = `
     -webkit-app-region: no-drag;
   }
 
-  /* top icons */
+  /* top left icons */
   .dark .dark\\:border-white\\/20 {
     border: none !important;
     border-color: transparent !important;
